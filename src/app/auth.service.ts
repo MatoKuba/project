@@ -1,44 +1,42 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly API_URL = 'http://localhost:3000/auth';
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser$: Observable<User>;
 
-  private isLoggedInSubject = new BehaviorSubject<boolean>(false);
-  public isLoggedIn$ = this.isLoggedInSubject.asObservable();
+  constructor(private http: HttpClient) {
+    const currentUser = localStorage.getItem('currentUser');
+    this.currentUserSubject = new BehaviorSubject<User>(currentUser ? JSON.parse(currentUser) : null);
+    this.currentUser$ = this.currentUserSubject.asObservable();
+  }
 
-  constructor(private http: HttpClient) {}
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
+  }
 
-  login(email: string, password: string): Observable<any> {
-    return this.http.post(`${this.API_URL}/login`, { email, password }).pipe(
-      tap(() => {
-        this.isLoggedInSubject.next(true);
-      })
-    );
+  login(username: string, password: string) {
+    return this.http.post<any>(`/api/authenticate`, { username, password })
+      .pipe(map(user => {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.currentUserSubject.next(user);
+        return user;
+      }));
+  }
+
+  logout() {
+    localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(new User(0, '', ''));
   }
 
   register(name: string, email: string, password: string): Observable<any> {
-    return this.http.post(`${this.API_URL}/register`, { name, email, password }).pipe(
-      tap(() => {
-        this.isLoggedInSubject.next(true);
-      })
-    );
-  }
-
-  logout(): Observable<any> {
-    return this.http.post(`${this.API_URL}/logout`, {}).pipe(
-      tap(() => {
-        this.isLoggedInSubject.next(false);
-      })
-    );
-  }
-
-  isLoggedIn(): boolean {
-    return this.isLoggedInSubject.getValue();
+    return this.http.post(`/api/register`, { name, email, password });
   }
 }

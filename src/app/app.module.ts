@@ -8,6 +8,8 @@ import { RegisterComponent } from './register/register.component';
 import { ChatComponent } from './chat/chat.component';
 import { ConversationService } from './conversation.service';
 import { ConversationComponent } from './conversation/conversation.component';
+import {HttpClientModule} from "@angular/common/http";
+import { MessagesComponent } from './messages/messages.component';
 
 
 @NgModule({
@@ -17,10 +19,12 @@ import { ConversationComponent } from './conversation/conversation.component';
     RegisterComponent,
     ChatComponent,
     ConversationComponent,
+    MessagesComponent,
   ],
     imports: [
         BrowserModule,
-        FormsModule
+        FormsModule,
+      HttpClientModule
     ],
   providers: [
     ConversationService

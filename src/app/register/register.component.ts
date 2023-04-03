@@ -8,14 +8,14 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  username: string;
-  password: string;
-  confirmPassword: string;
+  username: string = "";
+  password: string = "";
+  confirmPassword: string = "";
 
   constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
-    this.authService.register(this.username, this.password)
+    this.authService.register(this.confirmPassword, this.username, this.password)
       .subscribe(() => {
         this.router.navigate(['/login']);
       });

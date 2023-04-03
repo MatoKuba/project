@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Conversation } from '../conversation';
+import { Conversation } from './conversation';
 import { ConversationService } from '../conversation.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class ConversationComponent implements OnInit {
 
   sendMessage(): void {
     if (this.conversation && this.messageText) {
-      this.conversationService.sendMessage(this.conversation.id, 'User', this.messageText)
+      this.conversationService.sendMessage(this.conversation.id, this.messageText)
         .subscribe(() => {
           // clear the message text input
           this.messageText = '';

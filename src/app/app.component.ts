@@ -2,11 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-
-interface Message {
-  user: string;
-  text: string;
-}
+import {Message} from "./chat/message";
 
 @Component({
   selector: 'app-root',
@@ -14,7 +10,7 @@ interface Message {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  private destroy$ = new Subject();
+  private destroy$ = new Subject<void>();
   messages: Message[] = [];
   newMessage: string | undefined;
 

@@ -13,12 +13,12 @@
       <h4 *ngIf="selectedConversation">Conversation: {{selectedConversation.title}}</h4>
       <div class="messages" *ngIf="selectedConversation">
         <div class="message" *ngFor="let message of selectedConversation.messages">
-          <div *ngIf="message.from === currentUser.username" class="from-me">
+          <div *ngIf="message.from === currentUser.name" class="from-me">
             <span class="timestamp">{{message.timestamp | date: 'short'}}</span>
             <span class="username">{{message.from}}:</span>
             <span class="text">{{message.text}}</span>
           </div>
-          <div *ngIf="message.from !== currentUser.username" class="from-others">
+          <div *ngIf="message.from !== currentUser.name" class="from-others">
             <span class="timestamp">{{message.timestamp | date: 'short'}}</span>
             <span class="username">{{message.from}}:</span>
             <span class="text">{{message.text}}</span>
