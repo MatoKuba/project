@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Conversation } from './conversation';
-import { ConversationService } from '../conversation.service';
+import { Conversation } from '../common/model/conversation';
+import { ConversationService } from '../common/service/conversation.service';
 
 @Component({
   selector: 'app-conversation',

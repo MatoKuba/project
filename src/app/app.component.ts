@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import {Message} from "./chat/message";
+import {Message} from "./common/model/message";
 
 @Component({
   selector: 'app-root',
