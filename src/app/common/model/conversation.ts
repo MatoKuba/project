@@ -1,5 +1,5 @@
-import {Message} from "../chat/message";
-import {User} from "../user";
+import {Message} from "./message";
+import {User} from "./user";
 
 
 export interface Conversation {

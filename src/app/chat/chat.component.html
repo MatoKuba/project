@@ -1,36 +1,40 @@
-<div class="container">
-  <h2>Chat</h2>
-  <div class="row">
-    <div class="col-md-4">
-      <h4>Conversations</h4>
-      <ul class="list-group">
-        <li class="list-group-item" *ngFor="let conversation of conversations" [class.active]="conversation === selectedConversation" (click)="selectConversation(conversation)">
-          {{conversation.title}}
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-8">
-      <h4 *ngIf="selectedConversation">Conversation: {{selectedConversation.title}}</h4>
-      <div class="messages" *ngIf="selectedConversation">
-        <div class="message" *ngFor="let message of selectedConversation.messages">
-          <div *ngIf="message.from === currentUser.name" class="from-me">
-            <span class="timestamp">{{message.timestamp | date: 'short'}}</span>
-            <span class="username">{{message.from}}:</span>
-            <span class="text">{{message.text}}</span>
-          </div>
-          <div *ngIf="message.from !== currentUser.name" class="from-others">
-            <span class="timestamp">{{message.timestamp | date: 'short'}}</span>
-            <span class="username">{{message.from}}:</span>
-            <span class="text">{{message.text}}</span>
-          </div>
-        </div>
-      </div>
-      <form (ngSubmit)="onSubmit()" #messageForm="ngForm" *ngIf="selectedConversation">
-        <div class="form-group">
-          <textarea class="form-control" name="text" [(ngModel)]="message" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Send</button>
-      </form>
+<div class="wrapper">
+  <div class="header">
+    <div class="profile">
     </div>
   </div>
+  <div class="content">
+    <div class="conversation">
+      <div class="conversation-header">
+        <p>Text Text Text</p>
+        <p>20:30</p>
+      </div>
+      <div class="conversation-body" style="background-color: #59a4f2;"></div>
+    </div>
+    <div class="conversation">
+      <div class="conversation-header">
+        <p>Text Text Text</p>
+        <p>20:33</p>
+      </div>
+      <div class="conversation-body" style="background-color: #084f99;"></div>
+    </div>
+    <div class="conversation">
+      <div class="conversation-header">
+        <p>Text Text Text</p>
+        <p>20:33</p>
+      </div>
+      <div class="conversation-body" style="background-color: #59a4f2;"></div>
+    </div>
+    <div class="conversation">
+      <div class="conversation-header">
+        <p>Text Text Text</p>
+        <p>20:33</p>
+      </div>
+      <div class="conversation-body" style="background-color: #084f99;"></div>
+    </div>
+    <div class="message-box">
+      <input type="text" placeholder="Message...">
+    </div>
+  </div>
+  <div class="footer"></div>
 </div>
