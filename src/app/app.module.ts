@@ -11,6 +11,7 @@ import { ConversationComponent } from './conversation/conversation.component';
 import { HttpClientModule } from "@angular/common/http";
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HubComponent } from './hub/hub.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { AppRoutingModule } from './app-routing.module';
     ChatComponent,
     ConversationComponent,
     MessagesComponent,
+    HubComponent,
   ],
     imports: [
       BrowserModule,

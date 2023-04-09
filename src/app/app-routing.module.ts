@@ -5,6 +5,7 @@ import { ConversationComponent } from './conversation/conversation.component';
 import { LoginComponent } from './login/login.component';
 import { MessagesComponent } from './messages/messages.component';
 import { RegisterComponent } from './register/register.component';
+import {HubComponent} from "./hub/hub.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'chat', component: ChatComponent },
   { path: 'messages', component: MessagesComponent },
   { path: 'conversation/:id', component: ConversationComponent },
+  { path: 'hub', component: HubComponent},
 ];
 
 @NgModule({
