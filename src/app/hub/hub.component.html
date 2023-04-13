@@ -1,33 +1,11 @@
-<div class="room">
-  <div class="">
-    <p class="name">NAME</p>
-    <p class="last-message">LAST MESSAGE</p>
-  </div>
-  <div class="more"><div class="-6"></div></div>
+<div class="chat-rooms">
+  <section class="chat-room" *ngFor="let conversation of conversations">
+    <a [routerLink]="['/conversation', conversation.id]">
+      <h2 class="chat-room-name">{{ conversation.name }}</h2>
+      <p class="chat-room-last-message">{{ getLastMessage(conversation) }}</p>
+    </a>
+  </section>
+  <button class="new-contact-button fixed-button" routerLink="/register">
+    <span class="material-icons">add</span>
+  </button>
 </div>
-<div class="room">
-  <div class="">
-    <p class="name">NAME</p>
-    <p class="last-message">LAST MESSAGE</p>
-  </div>
-  <div class="more"><div class=""></div></div>
-</div>
-<div class="room">
-  <div class="">
-    <p class="name">NAME</p>
-    <p class="last-message">LAST MESSAGE</p>
-  </div>
-  <div class="more"><div class=""></div></div>
-</div>
-<div class="room">
-  <div class="">
-    <p class="name">NAME</p>
-    <p class="last-message">LAST MESSAGE</p>
-  </div>
-  <div class="more"><div class=""></div></div>
-</div>
-<div class="button">
-  <a href="#" class="button-image"></a>
-</div>
-
-

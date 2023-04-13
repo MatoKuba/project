@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Observable, of} from 'rxjs';
 import { Conversation } from '../model/conversation';
 import {Message} from "../model/message";
+import {MOCK_CONVERSATIONS} from "../../mock/mock-conversations";
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,14 @@ export class ConversationService {
 
   constructor(private http: HttpClient) {}
 
+  getConversations(): Observable<Conversation[]> {
+    return of(MOCK_CONVERSATIONS);
+  }
+
+  // Change the return type here to Observable<Conversation>
   getConversation(id: number): Observable<Conversation> {
-    return this.http.get<Conversation>(`${this.API_URL}/conversations/${id}`);
+    const conversation = MOCK_CONVERSATIONS.find((c) => c.id === id);
+    return of(conversation as Conversation);
   }
 
   sendMessage(conversationId: number, message: string): Observable<Message> {
