@@ -1,34 +1,102 @@
-.room {
-  background-color: blue;
-  border-radius: 10px;
-  padding: 20px 24px 20px 76px;
+.chat-rooms {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+}
+
+.chat-room {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Change from row to column */
+  align-items: flex-start; /* Align items to the start */
+  justify-content: space-between;
+  width: 80%; /* Reduce the width */
   margin-bottom: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
-.name {
-  width: 99.56%;
-  height: 42.5%;
-  color: white;
-  margin-bottom: 1px;
-  font-family: Arial;
-  font-size: 12px;
+
+.chat-room a {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  text-decoration: none; /* Remove the underline */
+  color: inherit; /* Inherit the text color from the parent */
 }
-.last-message {
-  height: 55%;
-  color: white;
-  align-self: stretch;
-}
-.button-image {
-  display: block;
-  margin-top: 20px;
-  margin-left: 90%;
-  width: 80px;
-  height: 80px;
-  background-image: url('src/assets/Button-ADD.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  border: none;
-  outline: none;
+
+.chat-room:hover {
   cursor: pointer;
+  background-color: #f0f0f0; /* Change the background color on hover */
 }
+
+.chat-room:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(89, 164, 242, 0.3); /* Add a focus ring */
+}
+
+
+.chat-room-last-message {
+  font-size: 14px;
+  color: #999;
+  margin: 0;
+  margin-top: 5px; /* Add a margin to the top */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide text that goes beyond the container */
+  text-overflow: ellipsis; /* Display an ellipsis when the text is too long */
+  max-width: 100%; /* Limit the width */
+}
+
+.chat-room-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+
+.chat-room-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.chat-room-button {
+  background-color: #59a4f2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.new-contact-button {
+  background-color: #59a4f2;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px 20px;
+  font-size: 24px; /* Increase the font size to make the plus sign larger */
+  cursor: pointer;
+  margin-top: 12px;
+  width: 60px; /* Increase the width */
+  height: 60px; /* Increase the height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fixed-button {
+  position: fixed; /* Make the button stay in the same position */
+  bottom: 20px; /* Set the distance from the bottom */
+  right: 20px; /* Set the distance from the right */
+  z-index: 9999; /* Ensure the button is always on top */
+}
+
+
