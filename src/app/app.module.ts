@@ -11,6 +11,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { HubComponent } from './hub/hub.component';
 import { RouterModule } from '@angular/router';
+import { MainComponent } from './main/main.component';
+import { InviteComponent } from './invite/invite.component';
 
 
 
@@ -21,6 +23,8 @@ import { RouterModule } from '@angular/router';
     RegisterComponent,
     ConversationComponent,
     HubComponent,
+    MainComponent,
+    InviteComponent,
   ],
     imports: [
       BrowserModule,
