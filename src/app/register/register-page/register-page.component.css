@@ -1,0 +1,31 @@
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(to bottom right, #0b1b3d, #000033);
+  color: #fff;
+}
+
+.register-header {
+  text-align: center;
+}
+
+.welcome-text {
+  font-size: 43px;
+  color: #fff;
+}
+
+.brand-name {
+  font-size: 66px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.register-form {
+  width: 30%;
+  margin-top: 10px;
+}
+
+

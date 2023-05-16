@@ -1,0 +1,29 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(to bottom right, #0b1b3d, #000033);
+  color: #fff;
+}
+
+.login-header {
+  text-align: center;
+}
+
+.welcome-text {
+  font-size: 40px;
+  color: #fff;
+}
+
+.brand-name {
+  font-size: 63px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.login-form {
+  width: 30%;
+  margin-top: 10px;
+}
