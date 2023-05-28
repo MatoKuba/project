@@ -1,0 +1,46 @@
+<div class="bg">
+  <div class="container">
+    <div class="card">
+      <h3 class="text-center">LOGIN</h3>
+      <form [formGroup]="loginForm">
+        <div class="mb-3 row">
+          <label for="staticEmail" class="col-sm-4 col-form-label"
+            ><b> Email </b></label
+          >
+          <div class="col-sm-12">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="email"
+              placeholder="email@example.com"
+            />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="inputPassword" class="col-sm-4 col-form-label">
+            <b> Password</b></label
+          >
+          <div class="col-sm-12">
+            <input
+              type="password"
+              class="form-control"
+              formControlName="password"
+              id="inputPassword"
+            />
+          </div>
+        </div>
+      </form>
+      <div>
+        Don't have account?
+        <span
+          style="color: #36db7b; font-weight: 600; cursor: pointer"
+          routerLink="../register"
+        >
+          Register
+        </span>
+      </div>
+
+      <button class="btn btn-success mt-3" (click)="onLogin()">LOGIN</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="bg">
+  <div class="container">
+    <div class="card">
+      <h3 class="text-center">Register New User</h3>
+      <form [formGroup]="registerForm">
+        <div class="mb-3 row">
+          <label for="staticEmail" class="col-sm-4 col-form-label"
+            ><b> First Name </b></label
+          >
+          <div class="col-sm-12">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="firstName"
+              placeholder="abc"
+            />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="staticEmail" class="col-sm-4 col-form-label"
+            ><b> Last Name </b></label
+          >
+          <div class="col-sm-12">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="lastName"
+              placeholder="xyz"
+            />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="staticEmail" class="col-sm-4 col-form-label"
+            ><b> Email </b></label
+          >
+          <div class="col-sm-12">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="email@example.com"
+              formControlName="email"
+            />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="inputPassword" class="col-sm-4 col-form-label">
+            <b> Password</b></label
+          >
+          <div class="col-sm-12">
+            <input
+              type="password"
+              class="form-control"
+              formControlName="password"
+              id="inputPassword"
+            />
+          </div>
+        </div>
+      </form>
+
+      <button class="btn btn-success mt-3" (click)="onSubmit()">
+        Register
+      </button>
+    </div>
+  </div>
+</div>

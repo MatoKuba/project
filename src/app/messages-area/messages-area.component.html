@@ -1,0 +1,174 @@
+<div class="body">
+  <div id="frame">
+    <div id="sidepanel">
+      <div id="profile">
+        <div class="wrap">
+          <img
+            id="profile-img"
+            src="http://emilcarlsson.se/assets/mikeross.png"
+            class="online"
+            alt=""
+          />
+          <p>{{ firstName + " " + lastName }}</p>
+          <i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>
+          <div id="status-options">
+            <ul>
+              <li id="status-online" class="active">
+                <span class="status-circle"></span>
+                <p>Online</p>
+              </li>
+              <li id="status-away">
+                <span class="status-circle"></span>
+                <p>Away</p>
+              </li>
+              <li id="status-busy">
+                <span class="status-circle"></span>
+                <p>Busy</p>
+              </li>
+              <li id="status-offline">
+                <span class="status-circle"></span>
+                <p>Offline</p>
+              </li>
+            </ul>
+          </div>
+          <div id="expanded">
+            <label for="twitter"
+              ><i class="fa fa-facebook fa-fw" aria-hidden="true"></i
+            ></label>
+            <input name="twitter" type="text" value="mikeross" />
+            <label for="twitter"
+              ><i class="fa fa-twitter fa-fw" aria-hidden="true"></i
+            ></label>
+            <input name="twitter" type="text" value="ross81" />
+            <label for="twitter"
+              ><i class="fa fa-instagram fa-fw" aria-hidden="true"></i
+            ></label>
+            <input name="twitter" type="text" value="mike.ross" />
+          </div>
+        </div>
+      </div>
+      <!-- <div id="search">
+        <label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
+        <input type="text" placeholder="Search contacts..." />
+      </div> -->
+      <div id="contacts">
+        <ul *ngFor="let user of emails">
+          <li
+            class="contact"
+            (click)="selectChat(user.id, user.firstName, user.lastName)"
+          >
+            <div class="wrap">
+              <span class="contact-status online"></span>
+              <img
+                src="http://emilcarlsson.se/assets/donnapaulsen.png"
+                alt=""
+              />
+              <div class="meta">
+                <p class="name">
+                  {{ user.firstName + " " + user.lastName }}
+                </p>
+                <!-- <p class="preview">Mike, I know everything! I'm Donna..</p> -->
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div id="bottom-bar">
+        <button id="addcontact" (click)="openModal(modalContent)">
+          <i class="fa fa-user-plus fa-fw" aria-hidden="true"></i>
+          <span>Add Group</span>
+        </button>
+      </div>
+    </div>
+    <div class="content">
+      <div class="contact-profile">
+        <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+        <p>{{ reciverFname + " " + recieverLname }}</p>
+        <div class="social-media">
+          <i class="fa fa-facebook" aria-hidden="true"></i>
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+          <i class="fa fa-instagram" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="messages">
+        <ul
+          *ngFor="
+            let message of objectsOfChat;
+            let i = index;
+            let first = first;
+            let last = last
+          "
+        >
+          <li class="sent" *ngIf="message.id == this.senderEmail">
+            <img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
+            <p>
+              {{ message.message }}
+            </p>
+          </li>
+          <li class="replies" *ngIf="message.id == this.recieverEmail">
+            <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+            <p>
+              {{ message.message }}
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="message-input">
+        <div class="wrap">
+          <input
+            type="text"
+            placeholder="Write your message..."
+            [(ngModel)]="textValue"
+          />
+          <i class="fa fa-paperclip attachment" aria-hidden="true"></i>
+          <button class="submit" (click)="sendMessage(textValue)">
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            send
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--  -->
+
+<ng-template #modalContent>
+  <!-- Modal content here -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="registerForm">
+        <div class="mb-3 row">
+          <label for="staticEmail" class="col-sm-4 col-form-label"
+            ><b> Enter Group Name </b></label
+          >
+          <div class="col-sm-12">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="firstName"
+              placeholder="Group Name"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+        Close
+      </button>
+      <button type="button" class="btn btn-primary" (click)="createGroup()">
+        Create Group
+      </button>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,24 @@
+.bg {
+  background: #36db7b;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  padding: 32px;
+  background-color: white;
+  border-radius: 8px;
+  width: 450px;
+  box-shadow: 9px 10px 19px -5px rgba(0, 0, 0, 0.61);
+  -webkit-box-shadow: 9px 10px 19px -5px rgba(0, 0, 0, 0.61);
+  -moz-box-shadow: 9px 10px 19px -5px rgba(0, 0, 0, 0.61);
+}
+input {
+  width: 100%;
+}
